@@ -17,6 +17,7 @@ Author URL: http://w3layouts.com
     <!-- //web fonts -->
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
+    
   </head>
   <body>
 
@@ -71,7 +72,7 @@ Author URL: http://w3layouts.com
                <!-- contact form -->
                <div class="contacts12-main col-lg-6 ">
                    
-                <form id="gform" method="POST" class="main-input"  action="https://script.google.com/macros/s/AKfycbxKX968HPR9AiTWWYMTLt75st3rZsgXdW8Ff9i3wcbqVsZ5nXCdPHLa1nDRqQYOveDCsQ/exec">
+                <form id="gform"  class="main-input"  action="">
                     <div class="top-inputs d-grid">
                         <input type="text"  name="name" id="name" placeholder="name" required="">
                        
@@ -80,7 +81,7 @@ Author URL: http://w3layouts.com
                    
                     <textarea placeholder="message" name="message" id="message" required=""></textarea>
                     <div class="text-right">
-                        <button type="submit" class="btn btn-theme2" value="SEND MESSAGE">Submit Now</button>
+                        <button type="submit" class="btn btn-theme2" value="submit">Submit Now</button>
                     </div>
                 </form>
             </div>
@@ -94,7 +95,7 @@ Author URL: http://w3layouts.com
                                 <span class="fa fa-map-marker" aria-hidden="true"></span>
                            </div>
                            <div class="cont-add-rgt">
-                            <p class="contact-text-sub">Thalakkadathur,Tirur,Malappuram</p>
+                            <p class="contact-text-sub">Thlakkadathur,Tirur,Malappuram</p>
                         </div>
                       
                     </div>
@@ -215,8 +216,27 @@ Author URL: http://w3layouts.com
   </script>
 
 <!-- Smooth scrolling -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<script>
+  $("#gform").submit((e)=>{
+      e.preventDefault()
+      $.ajax({
+          url:"https://script.google.com/macros/s/AKfycbxKX968HPR9AiTWWYMTLt75st3rZsgXdW8Ff9i3wcbqVsZ5nXCdPHLa1nDRqQYOveDCsQ/exec",
+          data:$("#gform").serialize(),
+          method:"post",
+          success:function (response){
+              alert("Form submitted successfully")
+              window.location.reload()
+              //window.location.href="https://google.com"
+          },
+          error:function (err){
+              alert("Something Error")
 
+          }
+      })
+  })
+</script>
 
 </body>
 
